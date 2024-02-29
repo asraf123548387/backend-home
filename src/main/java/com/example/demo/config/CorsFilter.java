@@ -25,7 +25,7 @@ public class CorsFilter implements Filter {
 //        response.setHeader("Access-Control-Max-Age","3600");
 //        response.setHeader("Access-Control-Allow-Headers","*");
         // Set the allowed origin to your React app's origin
-        response.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+        response.setHeader("Access-Control-Allow-Origin", "https://emoh.tech");
         response.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, DELETE, OPTIONS");
         response.setHeader("Access-Control-Max-Age", "3600");
         response.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type, X-Auth-Token");
