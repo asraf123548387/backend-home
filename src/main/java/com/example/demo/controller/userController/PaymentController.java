@@ -33,8 +33,8 @@ public class PaymentController {
             SessionCreateParams.Builder builder = new SessionCreateParams.Builder();
             builder.addPaymentMethodType(SessionCreateParams.PaymentMethodType.CARD);
             builder.setMode(SessionCreateParams.Mode.PAYMENT);
-            builder.setSuccessUrl("http://localhost:3000/?session_id={CHECKOUT_SESSION_ID}");
-            builder.setCancelUrl("http://localhost:3000/login");
+            builder.setSuccessUrl("https://frontend-home-ahmed-ashraf-ks-projects.vercel.app/?session_id={CHECKOUT_SESSION_ID}");
+            builder.setCancelUrl("https://frontend-home-ahmed-ashraf-ks-projects.vercel.app/login");
             builder.addLineItem(
                     SessionCreateParams.LineItem.builder()
                             .setQuantity(1L)
