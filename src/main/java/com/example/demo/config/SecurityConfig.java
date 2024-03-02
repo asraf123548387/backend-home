@@ -35,7 +35,7 @@ public class SecurityConfig {
         return http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth->{
                     auth.requestMatchers("/api/user/profile/**") .authenticated();
-                    auth.requestMatchers("/api/img/*.png", "/api/img/*.jpg").permitAll();
+                    auth.requestMatchers("/api/img/*.png", "/api/img/Hotel4.png").permitAll();
                     auth.requestMatchers("/api/user/**","/api/verify","/chat","/api/chat").permitAll();
                     auth.requestMatchers("/api/saveUser", "/api/", "/api/login","/api/verifyOtp","/api/forgotPassword","/api/verifyForgotPassword","/api/SAdmin/addAdmin").permitAll();
                     auth.requestMatchers("/api/admin/**").hasAnyRole("ADMIN", "SADMIN") ;
