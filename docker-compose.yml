@@ -1,0 +1,36 @@
+
+services:
+  app:
+    image: spring-app
+    container_name: spring-app-container
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/demo_db
+      SPRING_DATASOURCE_USERNAME: username
+      SPRING_DATASOURCE_PASSWORD: password
+    networks:
+      - spring-boot-network
+
+  db:
+    image: mysql:8.0
+    container_name: mysql-db-container
+    environment:
+      MYSQL_ROOT_PASSWORD: ashraf
+      MYSQL_DATABASE: demo_db
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - spring-boot-network
+
+volumes:
+  mysql_data:
+networks:
+  spring-boot-network:
+    driver: bridge
