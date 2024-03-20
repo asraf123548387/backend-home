@@ -197,4 +197,24 @@ public class BookingService {
 
         return bookingDTOs;
     }
+
+    @Transactional
+    public void cancelBooking(Long bookingId) {
+        // Fetch the booking
+        Booking booking = bookingRepo.findById(bookingId)
+                .orElseThrow(() -> new IllegalArgumentException("Booking not found with id " + bookingId));
+
+        // Get the room associated with the booking
+        Room room = booking.getRoom();
+
+        // Set the room's availability to true
+        room.setAvailability(true);
+
+        // Save the updated room
+        roomRepo.save(room);
+
+        // Delete the booking
+        bookingRepo.deleteById(bookingId);
+    }
 }
+

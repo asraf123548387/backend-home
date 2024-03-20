@@ -56,4 +56,10 @@ public class UserBookingController {
 
         return ResponseEntity.ok(bookings);
     }
+
+    @DeleteMapping("/booking/cancel/{bookingId}")
+    public ResponseEntity<Void> cancelBooking(@PathVariable Long bookingId) {
+        bookingService.cancelBooking(bookingId);
+        return ResponseEntity.noContent().build(); // 204 No Content
+    }
 }
